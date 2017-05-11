@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecordSleepData</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link href="recordSleepData.css" type="text/css" rel="stylesheet">
+</head>
+<body ng-app="recData" ng-controller="recDataCtrl">
+<div class="container">
+    <form action="http://kevinf.cn/sleepro/getdata.php" method="get">
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">日期:</p>
+            <p class="col-lg-4 hidden-md-down text-right">日期:</p>
+            <input class="col-lg-4 col-md-12 col-sm-12 col-xs-12 form-control" type="date" name="date">
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">睡觉时间:</p>
+            <p class="col-lg-4 hidden-md-down text-right">睡觉时间:</p>
+            <input class="col-lg-4 col-md-12 col-sm-12 col-xs-12 form-control" type="time" name="sleeptime">
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">清醒时间:</p>
+            <p class="col-lg-4 hidden-md-down text-right">清醒时间:</p>
+            <input class="col-lg-4 col-md-12 col-sm-12 col-xs-12 form-control" type="time" name="waketime">
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">睡觉地点:</p>
+            <p class="col-lg-4 hidden-md-down text-right">睡觉地点:</p>
+            <select class="form-control c-select col-lg-4 col-md-12" name="sleepplace">
+                <option>Home</option>
+                <option>College</option>
+                <option>Company</option>
+            </select>
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">上午工作质量:</p>
+            <p class="col-lg-4 hidden-md-down text-right">上午工作质量:</p>
+            <div class="btn-group col-lg-4 col-md-12 col-sm-12 col-xs-12 no-padding" data-toggle="buttons" role="group">
+                <label class="btn btn-secondary active btn-outline-info">
+                    <input type="radio" name="amq" autocomplete="off" value="1"> 好
+                </label>
+                <label class="btn btn-secondary btn-outline-warning">
+                    <input type="radio" name="amq" autocomplete="off" value="2"> 不好
+                </label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">上午工作地点:</p>
+            <p class="col-lg-4 hidden-md-down text-right">上午工作地点:</p>
+            <select class="form-control c-select col-lg-4 col-md-12" name="amplace">
+                <option>Home</option>
+                <option>College</option>
+                <option>Company</option>
+            </select>
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">上午活动记录:</p>
+            <p class="col-lg-4 hidden-md-down text-right">上午活动记录:</p>
+            <input class="col-lg-4 col-md-12 col-sm-12 col-xs-12 form-control" type="text" name="amnote">
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">下午工作质量:</p>
+            <p class="col-lg-4 hidden-md-down text-right">下午工作质量:</p>
+            <div class="btn-group col-lg-4 col-md-12 col-sm-12 col-xs-12 no-padding" data-toggle="buttons" role="group">
+                <label class="btn btn-secondary active btn-outline-info ">
+                    <input type="radio" name="pmq" autocomplete="off" value="1" > 好
+                </label>
+                <label class="btn btn-secondary btn-outline-warning">
+                    <input type="radio" name="pmq" autocomplete="off" value="2"> 不好
+                </label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">下午工作地点:</p>
+            <p class="col-lg-4 hidden-md-down text-right">下午工作地点:</p>
+            <select class="form-control c-select col-lg-4 col-md-12" name="pmplace">
+                <option>Home</option>
+                <option>College</option>
+                <option>Company</option>
+            </select>
+        </div>
+        <div class="row form-group">
+            <p class="col-md-12 hidden-lg-up text-left">下午活动记录:</p>
+            <p class="col-lg-4 hidden-md-down text-right">下午活动记录:</p>
+            <input class="col-lg-4 col-md-12 form-control" type="text" name="pmnote">
+        </div>
+        <div class="row">
+            <button type="submit" class="col-md-offset-4 col-lg-offset-4 btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
